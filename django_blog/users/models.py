@@ -1,0 +1,25 @@
+from django.db import models
+from django.contrib.auth.models import User
+from PIL import Image
+
+class Profile(models.Model):
+    # create one to relationship and if user is deleted delete profile
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # will need pillow to use makemigrations and migrate
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    bio = models.TextField(default='Enter Bio', max_length=100)
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+    # override save method for image resizing
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+
+        # check image size is too big and resize
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
