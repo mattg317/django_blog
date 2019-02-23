@@ -116,9 +116,8 @@ dmypy.json
 .pyre/
 
 migrations
+migrations
 media
 db.sqlite3
-../.DS_Store
-blog/__init__.py
-django_blog/__init__.py
-users/__init__.py
+.DS_Store
+__init__.py
