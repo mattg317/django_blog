@@ -10,6 +10,8 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+from django.db import connection
+from django.http import HttpResponse
 
 
 def home(request):
