@@ -9,7 +9,8 @@ class Post(models.Model):
     class Meta:
         permissions = [
             ('can_create_post', 'Can post blog'),
-            ('can_update_post', 'Can update blog post')
+            ('can_update_post', 'Can update blog post'),
+            ('can_delete_post', 'Can delete posts'),
         ]
     title = models.CharField(max_length=100)
     content = models.TextField()
