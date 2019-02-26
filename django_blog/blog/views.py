@@ -84,25 +84,13 @@ class PostUpdateView(PermissionRequiredMixin, UpdateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-    # check correct user can update post
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user.is_superuser:
-            return True
-        return False
 
+class PostDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'can_delete_post'
 
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     # Set model to Post view to query
     model = Post
     success_url = '/'
-
-    # check correct user can update post
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user.is_superuser:
-            return True
-        return False
 
 
 def about(request):
