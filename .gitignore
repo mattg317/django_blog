@@ -118,7 +118,6 @@ dmypy.json
 media
 db.sqlite3
 .DS_Store
-__init__.py
 posts.json
 static
 
