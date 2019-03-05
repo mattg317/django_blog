@@ -120,6 +120,8 @@ db.sqlite3
 .DS_Store
 posts.json
 static
+settings
+posts.json
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
