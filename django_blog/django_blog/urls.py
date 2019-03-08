@@ -33,6 +33,7 @@ urlpatterns = [
          ),
          name='password_reset_complete'),
     path('', include('blog.urls')),
+    path('health/', include('health_check.urls')),
 ]
 
 if settings.DEBUG:
