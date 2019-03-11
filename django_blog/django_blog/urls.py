@@ -34,6 +34,7 @@ urlpatterns = [
          name='password_reset_complete'),
     path('', include('blog.urls')),
     path('health/', include('health_check.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls'))
 ]
 
 if settings.DEBUG:

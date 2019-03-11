@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Post(models.Model):
@@ -13,7 +14,8 @@ class Post(models.Model):
             ('can_delete_post', 'Can delete posts'),
         ]
     title = models.CharField(max_length=100)
-    content = models.TextField()
+    #content = models.TextField()
+    content = RichTextUploadingField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 

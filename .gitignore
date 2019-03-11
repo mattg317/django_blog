@@ -129,3 +129,5 @@ posts.json
 !.elasticbeanstalk/*.global.yml
 
 todo.txt
+django_blog/staticfiles/ckeditor
+django_blog/staticfiles/admin
